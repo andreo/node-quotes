@@ -11,7 +11,8 @@ function days(n) {
 var app = express()
     .use(express.compress())
     .use(express.static(__dirname + '/public', { maxAge: days(0)}))
-    .use(express.static(__dirname + '/bower_components', { maxAge: days(0)}))
+    .use(express.static(__dirname + '/bower_components'))
+    // .use(express.static(__dirname + '/bower_components', { maxAge: days(0)}))
     .get('/set?:args', setHandler);
 
 var server = http.createServer(app);
