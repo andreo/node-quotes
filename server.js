@@ -35,7 +35,7 @@ function setHandler(req, res)
     res.json(quotes);
 }
 
-server.listen(5080);
+server.listen(process.env.PORT || 5080, process.env.HOST || 'localhost');
 
 io.sockets.on('connection', function (socket) {
     socketMap[socket.id] = socket;
